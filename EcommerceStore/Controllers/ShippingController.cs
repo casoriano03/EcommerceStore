@@ -100,6 +100,7 @@ namespace EcommerceStore.Controllers
                     ZipCode = shippingDto.ZipCode,
                     City = shippingDto.City,
                     Phone = shippingDto.Phone,
+                    Status = "Pending",
                     UpdatedDate = DateTime.Now
                 };
                 await _eStoreDbContext.Shippings.AddAsync(shippingOrder);

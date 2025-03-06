@@ -87,6 +87,7 @@ namespace EcommerceStore.Controllers
                 {
                     UserId = orderDto.UserId,
                     OrderItems = cartItems,
+                    Status = "Pending",
                     Total = orderDto.Total
                 };
                 await _eStoreDbContext.Orders.AddAsync(order);

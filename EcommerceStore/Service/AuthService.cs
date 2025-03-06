@@ -45,45 +45,5 @@ namespace EcommerceStore.Service
             return new string(Enumerable.Repeat(chars, 16)
                 .Select(s => s[random.Next(s.Length)]).ToArray());
         }
-
-
-        public void SendChangePasswordEmail(string firstName, string lastName, string recipientEmail,
-            string randomGeneratedPassword)
-        {
-            var name = firstName + " " + lastName;
-            var fromName = _configuration["EmailSettings:FromName"];
-            var fromEmail = _configuration["EmailSettings:FromEmail"];
-            var subject = _configuration["EmailSettings:Subject"];
-            var server = _configuration["EmailSettings:SmtpServer"];
-            var port = _configuration.GetValue<int>("EmailSettings:SmtpPort");
-            var password = _configuration["EmailSettings:Password"];
-
-            var emailMessage = new MimeMessage();
-            emailMessage.From.Add(new MailboxAddress(fromName, fromEmail));
-            emailMessage.To.Add(new MailboxAddress(name, recipientEmail));
-            emailMessage.Subject = subject;
-            emailMessage.Body = new TextPart("plain")
-            {
-                Text =
-                    $"Hi {firstName},\n\nHere is your randomly generated password: {randomGeneratedPassword}\n\nPlease change it after logging in.\n\nBest regards,\nEcommerce Store Team"
-            };
-
-            using (var client = new SmtpClient())
-            {
-                try
-                {
-                    client.CheckCertificateRevocation = false;
-                    client.Connect(server, port, SecureSocketOptions.StartTls);
-                    client.Authenticate(fromEmail, password);
-                    client.Send(emailMessage);
-                    client.Disconnect(true);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                    throw;
-                }
-            }
-        }
     }
 }
