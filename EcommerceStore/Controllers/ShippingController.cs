@@ -14,7 +14,7 @@ namespace EcommerceStore.Controllers
     {
         private readonly IEStoreDbContext _eStoreDbContext = eStoreDbContext;
 
-        [HttpGet]
+        [HttpGet("GetAllShippingMethods")]
         [Description("Get all shipped orders or for shipping orders in the database")]
         public async Task<IActionResult> GetAllShippingMethods()
         {
@@ -30,7 +30,7 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetOrderShippedById{id}")]
         [Description("Get shipped order by id")]
         public async Task<IActionResult> GetOrderShippedById(int id)
         {
@@ -48,7 +48,7 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetOrderShippedByOrderId{id}")]
         [Description("Get shipped order by orderId")]
         public async Task<IActionResult> GetOrderShippedByOrderId(int orderId)
         {
@@ -66,7 +66,7 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpGet("GetOrderShippedByUserId")]
         [Description("Get shipped orders by userId")]
         public async Task<IActionResult> GetOrderShippedByUserId(int userId)
         {
@@ -86,7 +86,7 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost("CreateShippingOrder")]
         [Description("Create a new shipping order")]
         public async Task<IActionResult> CreateShippingOrder(ShippingDto shippingDto)
         {
@@ -114,7 +114,7 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("UpdateShippingOrderStatus{id}")]
         [Description("Update shipping order status")]
         public async Task<IActionResult> UpdateShippingOrderStatus(int id, string status)
         {
@@ -135,7 +135,7 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("UpdateShippingOrder{id}")]
         [Description("Update shipping order")]
         public async Task<IActionResult> UpdateShippingOrder(int id, ShippingDto shippingDto)
         {
@@ -160,7 +160,7 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteShippingOrder{id}")]
         [Description("Delete shipping order")]
         public async Task<IActionResult> DeleteShippingOrder(int id)
         {

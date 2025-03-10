@@ -14,7 +14,7 @@ namespace EcommerceStore.Controllers
     {
         private readonly IEStoreDbContext _eStoreDbContext = eStoreDbContext;
 
-        [HttpGet]
+        [HttpGet("GetAllWishlists")]
         [Description("Get all wishlists in the database")]
         public async Task<IActionResult> GetAllWishlists()
         {
@@ -32,7 +32,7 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetWishlistById{id}")]
         [Description("Get wishlist by id")]
         public async Task<IActionResult> GetWishlistById(int id)
         {
@@ -51,7 +51,7 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetWishlistByUserId{id}")]
         [Description("Get wishlist by userId")]
         public async Task<IActionResult> GetWishlistByUserId(int userId)
         {
@@ -71,7 +71,7 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost("AddProductToWishlist")]
         [Description("Add product to wishlist")]
         public async Task<IActionResult> AddProductToWishlist(WishlistDto wishlistDto)
         {
@@ -93,7 +93,7 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("RemoveProductFromWishlist{id}")]
         [Description("Remove product from wishlist")]
         public async Task<IActionResult> RemoveProductFromWishlist(int id)
         {

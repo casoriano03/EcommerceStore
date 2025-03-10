@@ -14,7 +14,7 @@ namespace EcommerceStore.Controllers
     {
         private readonly IEStoreDbContext _eStoreDbContext = eStoreDbContext;
 
-        [HttpGet]
+        [HttpGet("GetAllReviews")]
         [Description("Get all reviews in the database")]
         public async Task<IActionResult> GetAllReviews()
         {
@@ -30,7 +30,7 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetReviewsByProductId{id}")]
         [Description("Get all reviews for a product")]
         public async Task<IActionResult> GetReviewsByProductId(int productId)
         {
@@ -50,7 +50,7 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetReviewsByUserId{id}")]
         [Description("Get review by userId")]
         public async Task<IActionResult> GetReviewsByUserId(int userId)
         {
@@ -70,7 +70,7 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetReviewById{id}")]
         [Description("Get review by id")]
         public async Task<IActionResult> GetReviewById(int id)
         {
@@ -88,7 +88,7 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost("CreateReview")]
         [Description("Create a new review")]
         public async Task<IActionResult> CreateReview(ReviewDto reviewDto)
         {
@@ -112,7 +112,7 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("UpdateReview{id}")]
         [Description("Update a review")]
         public async Task<IActionResult> UpdateReview(int id, ReviewDto reviewDto)
         {
@@ -132,7 +132,7 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteReview{id}")]
         [Description("Delete a review")]
         public async Task<IActionResult> DeleteReview(int id)
         {

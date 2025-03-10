@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
 
 
 namespace EcommerceStore.Controllers
@@ -18,6 +19,8 @@ namespace EcommerceStore.Controllers
         private readonly IEmailService _emailService = emailService;
 
         [HttpPost("register")]
+        [Description("Register a user in the database")]
+
         public async Task<IActionResult> Register(RegistrationDto registrationDto)
         {
             try
@@ -47,6 +50,7 @@ namespace EcommerceStore.Controllers
         }
 
         [HttpPost("login")]
+        [Description("Login a user in the database")]
         public async Task<IActionResult> Login(LoginDto loginDto)
         {
             try
@@ -67,6 +71,7 @@ namespace EcommerceStore.Controllers
         }
 
         [HttpGet("Random_Password")]
+        [Description("Generate a random password for a user")]
         public async Task<IActionResult> GenerateRandomPassword(string userEmailInput)
         {
             try
@@ -91,6 +96,7 @@ namespace EcommerceStore.Controllers
         }
 
         [HttpPut("Change_Password")]
+        [Description("Change a user's password in the database")]
         public async Task<IActionResult> ChangePassword(ChangePasswordDto changePasswordDto)
         {
             try
@@ -111,6 +117,7 @@ namespace EcommerceStore.Controllers
         }
 
         [HttpPut("Confirm_Email")]
+        [Description("Confirm a user's email in the database")]
         public async Task<IActionResult> ConfirmEmail(string email)
         {
             try

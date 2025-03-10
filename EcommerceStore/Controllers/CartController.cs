@@ -14,7 +14,7 @@ namespace EcommerceStore.Controllers
     {
         private readonly IEStoreDbContext _eStoreDbContext = eStoreDbContext;
 
-        [HttpGet]
+        [HttpGet("GetCartItems")]
         [Description("Get all carts in the database")]
         public async Task<IActionResult> GetCartItems(int userId)
         {
@@ -33,7 +33,7 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetCartItemById{id}")]
         [Description("Gets cart for registered user")]
         public async Task<IActionResult> GetCartItemById(int id)
         {
@@ -54,7 +54,7 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost("AddCartItem")]
         [Description("Adds item to cart")]
         public async Task<IActionResult> AddCartItem(CartDto cartDto)
         {
@@ -77,7 +77,7 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("AddProductToCart{id}")]
         [Description("Changes quantity of item in cart")]
         public async Task<IActionResult> AddProductToCart(int id, int newQuantity)
         {
@@ -98,7 +98,7 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteCartItem{id}")]
         [Description("Deletes item from cart")]
         public async Task<IActionResult> DeleteCartItem(int id)
         {

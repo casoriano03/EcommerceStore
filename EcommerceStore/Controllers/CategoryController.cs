@@ -1,4 +1,5 @@
-﻿using EcommerceStore.Interface;
+﻿using System.ComponentModel;
+using EcommerceStore.Interface;
 using EcommerceStore.Model;
 using EcommerceStore.Model.DTO;
 using Microsoft.AspNetCore.Http;
@@ -13,7 +14,8 @@ namespace EcommerceStore.Controllers
     {
         private readonly IEStoreDbContext _eStoreDbContext = eStoreDbContext;
 
-        [HttpGet]
+        [HttpGet("GetCategories")]
+        [Description("Get all categories in the database")]
         public async Task<IActionResult> GetCategories()
         {
             try
@@ -28,7 +30,8 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetCategoryById{id}")]
+        [Description("Get a category by id in the database")]
         public async Task<IActionResult> GetCategoryById(int id)
         {
             try
@@ -44,7 +47,8 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost("AddCategory")]
+        [Description("Add a category in the database")]
         public async Task<IActionResult> AddCategory(CategoryDto categoryDto)
         {
             try
@@ -65,7 +69,8 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("UpdateCategory{id}")]
+        [Description("Update a category by id in the database")]
         public async Task<IActionResult> UpdateCategory(int id, CategoryDto categoryDto)
         {
             try
@@ -84,7 +89,8 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteCategory{id}")]
+        [Description("Delete a category by id in the database")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
             try

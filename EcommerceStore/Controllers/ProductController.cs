@@ -5,6 +5,7 @@ using EcommerceStore.Model.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
 
 namespace EcommerceStore.Controllers
 {
@@ -14,7 +15,8 @@ namespace EcommerceStore.Controllers
     {
         private readonly IEStoreDbContext _eStoreDbContext = eStoreDbContext;
 
-        [HttpGet]
+        [HttpGet("GetAllProducts")]
+        [Description("Get all products in the database")]
         public async Task<IActionResult> GetAllProducts()
         {
             try
@@ -31,7 +33,9 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetProductById{id}")]
+        [Description("Get a product by id in the database")]
+
         public async Task<IActionResult> GetProductById(int id)
         {
             try
@@ -51,7 +55,9 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost("AddProduct")]
+        [Description("Get a product by id in the database")]
+
         public async Task<IActionResult> AddProduct(ProductDto productDto)
         {
             try
@@ -76,7 +82,9 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("UpdateProduct{id}")]
+        [Description("Edit a product by id in the database")]
+
         public async Task<IActionResult> UpdateProduct(int id, ProductDto productDto)
         {
             try
@@ -101,7 +109,9 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteProduct{id}")]
+        [Description("Delete a product by id in the database")]
+
         public async Task<IActionResult> DeleteProduct(int id)
         {
             try

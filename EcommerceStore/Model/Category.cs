@@ -5,6 +5,5 @@
         public int Id { get; set; }
         public required string Name { get; set; } = string.Empty;
         public required string ImageLink { get; set; } = string.Empty;
-        public List<Product> Products { get; set; } = new List<Product>();
     }
 }
