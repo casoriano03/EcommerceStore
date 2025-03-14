@@ -21,6 +21,12 @@ namespace EcommerceStore
             builder.Services.AddScoped<IAuthService, AuthService>();
             builder.Services.AddScoped<IEmailService, EmailService>();
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            });
+
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
@@ -33,6 +39,8 @@ namespace EcommerceStore
                 app.MapOpenApi();
                 app.MapScalarApiReference();
             }
+
+            app.UseCors("AllowAll");
 
             app.UseHttpsRedirection();
 

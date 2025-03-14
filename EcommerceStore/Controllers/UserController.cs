@@ -1,4 +1,5 @@
-﻿using EcommerceStore.Interface;
+﻿using System.ComponentModel;
+using EcommerceStore.Interface;
 using EcommerceStore.Model.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +13,8 @@ namespace EcommerceStore.Controllers
     {
         private readonly IEStoreDbContext _eStoreDbContext = eStoreDbContext;
 
-        [HttpGet]
+        [HttpGet("GetUsers")]
+        [Description("Get all users in the database")]
         public async Task<IActionResult> GetUsers()
         {
             try
@@ -27,7 +29,8 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetUserById{id}")]
+        [Description("Get a user by id in the database")]
         public async Task<IActionResult> GetUserById(int id)
         {
             try
@@ -43,7 +46,8 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("UpdateUser{id}")]
+        [Description("Update a user in the database")]
         public async Task<IActionResult> UpdateUser(int id, UpdateUserDto updateUserDto)
         {
             try
@@ -66,7 +70,8 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteUser{id}")]
+        [Description("Delete a user in the database")]
         public async Task<IActionResult> DeleteUser(int id)
         {
             try

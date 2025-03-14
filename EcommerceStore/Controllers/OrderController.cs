@@ -14,7 +14,7 @@ namespace EcommerceStore.Controllers
     {
         private readonly IEStoreDbContext _eStoreDbContext = eStoreDbContext;
 
-        [HttpGet]
+        [HttpGet("GetAllOrders")]
         [Description("Get all orders in the database")]
         public async Task<IActionResult> GetAllOrders()
         {
@@ -32,7 +32,7 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetOrdersByUserId{id}")]
         [Description("Get all orders for a user")]
         public async Task<IActionResult> GetOrdersByUserId(int userId)
         {
@@ -52,7 +52,7 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetOrderById{id}")]
         [Description("Get order by id")]
         public async Task<IActionResult> GetOrderById(int id)
         {
@@ -71,7 +71,7 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost("CreateOrder")]
         [Description("Create a new order")]
         public async Task<IActionResult> CreateOrder(OrderDto orderDto)
         {
@@ -101,7 +101,7 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("UpdateOrderStatus{id}")]
         [Description("Update order status")]
         public async Task<IActionResult> UpdateOrderStatus(int id, string newStatus)
         {
@@ -121,7 +121,7 @@ namespace EcommerceStore.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteOrder{id}")]
         [Description("Delete order")]
         public async Task<IActionResult> DeleteOrder(int id)
         {
