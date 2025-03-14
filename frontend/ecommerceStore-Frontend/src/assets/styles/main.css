@@ -1,0 +1,114 @@
+/* navbar */
+.navContainer {
+    background-color: #F2E2B1;
+}
+
+
+/* hero */
+.btnToShop{
+    background-color:#BDB395;
+}
+
+/* carousel */
+.carouselCard {
+    height: 500px;
+}
+
+.cardBody {
+    background-color: #BDB395;
+}
+
+.addToCart {
+    background-color: #BDB395;
+}
+
+.carouselText{
+    max-width: 55rem;
+}
+
+/* press Comments */
+
+.pressMainContainer{
+    background-color: #F6F0F0;
+
+}
+
+.pressLogos{
+    width: 3rem;
+}
+
+.pressText{
+    max-width: 35rem;
+}
+
+.pressSubText {
+    max-width: 40rem;
+}
+
+
+/* categories */
+
+.categoryImage {
+    transition: transform 0.3s ease-in-out;
+}
+
+.categoriesText {
+    max-width: 55rem;
+}
+
+.categoryImage:hover {
+    transform: scale(1.1);
+    opacity: 75%;
+}
+
+.imageLabel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: #F6F0F0;
+}
+
+.cardCategory{
+    overflow: hidden;
+}
+
+.cardCategory:hover .imageLabel{
+    color: #BDB395;
+}
+
+/* app */
+
+.appContainer{
+    background-color:#F6F0F0 ;
+    margin-top: 5%;
+}
+
+.appText{
+    max-width: 550px;
+}
+
+.appImage{
+    width: 40rem;
+}
+
+.appBtn{
+    width: 7rem;
+}
+
+.mobileLogo {
+    width: 1rem;
+}
+
+/* socials */
+
+.socialsImages {
+    width: 5rem;
+}
+
+.socialsText {
+    max-width: 55rem;
+}
