@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
+import ProductCard from './ProductCard.vue';
 
 const products = ref([]);
 
@@ -33,14 +34,13 @@ function truncateText(text){
         class="carousel-item"
         :class="{ active: index === 0 }">
         <div class="row justify-content-center">
-          <div v-for="(product, i) in products.slice(index * 3, (index + 1) * 3)" :key="product.id" class="col-md-2">
+          <!-- <div v-for="(product, i) in products.slice(index * 3, (index + 1) * 3)" :key="product.id" class="col-md-2">
             <div class="card text-center shadow-sm carouselCard">
               <div>
                 <img :src="product.imageUrl" class="card-img-top" alt="Product Image" width="10" height="250">
               </div>
               <div class="card-body fs-6 cardBody">
                 <h5 class="card-title">{{ product.name }}</h5>
-                <!-- <p class="card-text">{{truncateText(product.description)}}</p> -->
               </div>
               <div class="card-footer">
                   <p class="fw-bold">NOK {{ product.price }}</p>
@@ -49,17 +49,18 @@ function truncateText(text){
                   <a href="#" class="btn btn-outline-dark addToCart">Add to Cart</a>
               </div>
             </div>
-          </div>
+          </div> -->
+          <ProductCard :products="products"/>
         </div>
       </div>
     </div>
 
     <!-- Carousel Controls -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <button class="carousel-control-prev carouselBtn" style="width: 7rem;" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <button class="carousel-control-next carouselBtn" style="width: 7rem;" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>

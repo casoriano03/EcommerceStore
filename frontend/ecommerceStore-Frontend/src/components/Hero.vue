@@ -11,7 +11,7 @@
         <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Discover, Shop, Delight – Your One-Stop Destination</h1>
         <p class="lead">From trendy fashion to must-have gadgets, we bring you the best products at unbeatable prices. Shop with ease, enjoy fast delivery, and experience customer service that truly cares. Your perfect purchase is just a click away!</p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-          <RouterLink to="/shop" type="button" class="btn btn-outline-dark btn-lg px-4 btnToShop">To Shop</RouterLink>
+          <RouterLink to="/shop" type="button" class="btn btn-outline-dark btn-lg px-4 btnToShop">Shop Now</RouterLink>
         </div>
       </div>
     </div>

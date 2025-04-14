@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue';
 import axios from 'axios';
 import ProductCard from '@/components/ProductCard.vue';
 
-const searchString = ref(" ");
+const searchString = ref("");
 const productsData = ref([]);
 const filteredProducts = ref([]);
 
@@ -21,7 +21,6 @@ const searchData = () =>{
     filteredProducts.value = productsData.value.filter(p =>
         p.name.toLowerCase().includes(searchString.value.toLowerCase())
     );
-    console.log(filteredProducts.value);
 }
 
 </script>

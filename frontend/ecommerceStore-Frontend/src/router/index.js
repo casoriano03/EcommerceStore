@@ -4,8 +4,15 @@ import ShopView from '@/views/ShopView.vue';
 import LoginView from '@/components/Login.vue';
 import RegisterView from '@/views/RegisterView.vue';
 import ChangePasswordView from '@/views/ChangePasswordView.vue';
-import ProflieView from '@/components/Profile.vue';
+import ProfileView from '@/views/ProfileView.vue';
 import SearchView from '@/views/SearchView.vue';
+import ProductView from '@/views/ProductView.vue';
+import CartView from '@/views/CartView.vue';
+import ShippingView from '@/views/ShippingView.vue';
+import PaymentSuccessView from '@/views/PaymentSuccessView.vue';
+import PaymentFailedView from '@/views/PaymentFailedView.vue';
+import AdminView from '@/views/AdminView.vue';
+
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,13 +45,44 @@ const router = createRouter({
       {
         path:'/profile',
         name:'profile',
-        component: ProflieView,
+        component: ProfileView,
       },
       {
         path:'/search',
         name:'search',
         component: SearchView,
-      }
+      },
+      {
+        path:'/product/:productId',
+        name:'product',
+        component: ProductView,
+      },
+      {
+        path:'/cart',
+        name:'cart',
+        component: CartView,
+      },
+      {
+        path:'/shipping',
+        name:'order',
+        component: ShippingView,
+      },
+      {
+        path:'/paymentSuccess',
+        name:'paymentSuccess',
+        component: PaymentSuccessView,
+      },
+      {
+        path:'/paymentFailed',
+        name:'paymentFailed',
+        component: PaymentFailedView,
+      },
+      {
+        path:'/admin',
+        name:'admin',
+        component: AdminView,
+      },
+
     ],
   })
   

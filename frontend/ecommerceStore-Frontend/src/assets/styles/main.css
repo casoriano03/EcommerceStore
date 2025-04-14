@@ -26,6 +26,7 @@
     max-width: 55rem;
 }
 
+
 /* press Comments */
 
 .pressMainContainer{
@@ -97,6 +98,7 @@
 
 .appBtn{
     width: 7rem;
+    background-color: #BDB395;
 }
 
 .mobileLogo {
@@ -111,4 +113,39 @@
 
 .socialsText {
     max-width: 55rem;
+}
+
+/* shop */
+
+.shopIcons {
+    width: 1.5rem;
+}
+
+/* product */
+.productImage{
+    width: 25rem;
+}
+
+.productQuantityInput{
+    width: 5rem;
+}
+
+.productButton{
+    background-color: #BDB395;
+}
+
+.productDetailsContainer{
+    background-color:#F6F0F0 ;
+}
+
+.addReviewContainer {
+    background-color:#F6F0F0 ;
+}
+
+.reviewContainer{
+    background-color:#F6F0F0 ;
+}
+
+.cartButton{
+    background-color: #BDB395;
 }

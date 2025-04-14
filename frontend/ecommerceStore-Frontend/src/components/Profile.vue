@@ -11,7 +11,6 @@ const role = ref("");
 
 onMounted(()=>{
     const payload = getTokenPayLoad(token);
-    console.log(payload)
     firstName.value = payload.given_name
     lastName.value = payload.family_name
     email.value = payload.email

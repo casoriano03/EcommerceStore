@@ -2,23 +2,30 @@
 import { ref } from 'vue';
 import axios from 'axios';
 import { useRouter } from 'vue-router';
+import { jwtDecode } from 'jwt-decode';
 
 const loginDetails = ref({
     email:"",
     password:""
 });
-
 const router = useRouter();
+const showInvalidCredentialMessage = ref(false)
+
 
 const login = async()=>{
     try {
         const response = await axios.post('https://localhost:7023/api/Auth/login', loginDetails.value)
         sessionStorage.setItem("authToken", response.data)
+        loginDetails.value.email = "";
+        loginDetails.value.password = "";
         router.push("/")
         setTimeout(()=>{
           window.location.reload();
         }, 200);
     } catch (error) {
+        loginDetails.value.email = "";
+        loginDetails.value.password = "";
+        showInvalidCredentialMessage.value = true
         console.log(error)
     }
 };
@@ -34,6 +41,14 @@ const confirmChangePass = async()=>{
     }
 };
 
+const getTokenPayLoad = (token)=>{
+  if (token) {
+    const decoded = jwtDecode(token);
+    return decoded;
+  }
+    return null
+};
+
 </script>
 
 <template>
@@ -45,6 +60,7 @@ const confirmChangePass = async()=>{
     </div>
 
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    <p v-if="showInvalidCredentialMessage" class="text-danger">Invalid Email or Password</p>
 
     <div class="form-floating my-1">
       <input type="email" v-model="loginDetails.email" class="form-control" id="floatingInput" placeholder="name@example.com">
